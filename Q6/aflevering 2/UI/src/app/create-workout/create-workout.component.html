@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <h1 class="text-center text-black pt-5"> WORKOUTS</h1>
+  <div class="row">
+
+    <div class="col col-lg-6 col-md-12 col-sm-12 padding">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="text-center text-info"> Here you can create your own workout by filling the below form </h3>
+          <form [formGroup]="WorkoutForm" (ngSubmit)="onSubmitWorkout()">
+
+            <mat-form-field apperance="standard" class="fullwidth">
+              <mat-label>Workout Name</mat-label>
+              <input matInput placeholder="Workout Name" formControlName="workoutName">
+            </mat-form-field><br>
+
+            <button mat-flat-button color="primary" type="submit">Create Workout</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-lg-6 col-md-12 col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="text-center text-info">Here you can create exercises by filling the below form</h3>
+          <form [formGroup]="ExerciseForm" (ngSubmit)="onSubmitExercise()">
+
+            <mat-form-field apperance="standard" class="fullwidth">
+              <mat-label >Workout</mat-label>
+              <mat-select formControlName="workoutNameSelect" >
+                <mat-option *ngFor="let workout of workoutGet" [value]="workout" >{{workout}}</mat-option>
+              </mat-select>
+            </mat-form-field><br>
+
+            <mat-form-field apperance="standard" class="fullwidth">
+              <mat-label>Exercise Name</mat-label>
+              <input matInput placeholder="Exercise Name" formControlName="exerciseName">
+            </mat-form-field><br>
+
+
+            <mat-form-field apperance="standard" class="fullwidth">
+              <mat-label>Exercise Description</mat-label>
+              <textarea matInput formControlName="exerciseDescription" placeholder="Exercise Description" ></textarea>
+
+            </mat-form-field><br>
+
+            <mat-form-field apperance="standard" class="fullwidth">
+              <mat-label>Number of Set</mat-label>
+              <input matInput type="number" placeholder="Number of Set" formControlName="exerciseSet">
+            </mat-form-field><br>
+
+            <mat-form-field apperance="standard" class="fullwidth">
+              <mat-label>Number of rep</mat-label>
+              <input matInput type="number" placeholder="Number of Rep" formControlName="exerciseRep">
+            </mat-form-field><br>
+
+            <button mat-flat-button color="primary" type="submit">Create Exercise</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

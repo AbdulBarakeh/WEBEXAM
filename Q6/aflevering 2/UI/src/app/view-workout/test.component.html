@@ -1,0 +1,50 @@
+{{title}}
+<div *ngIf="workoutList?.length > 0">    
+    <mat-accordion>
+        <mat-expansion-panel hideToggle *ngFor="let workout of workoutList">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h4>{{workout.Name}}</h4>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+                        
+            <div fxLayout="row" fxLayout.lt-md="column">
+                <div fxLayout="column" fxFlex="25%">
+                    <div fxLayout="row" class="exerciseheader">
+                        Exercise Name
+                    </div>
+                    <div fxLayout="row" *ngFor="let exercise of workout.Exercises">
+                        {{exercise.Name}}
+                    </div>
+                </div>
+
+                <div fxLayout="column" fxFlex="25%">
+                    <div fxLayout="row" class="exerciseheader">
+                        Description
+                    </div>
+                    <div fxLayout="row" *ngFor="let exercise of workout.Exercises">
+                        {{exercise.Description}}
+                    </div>
+                </div>
+
+                <div fxLayout="column" fxFlex="25%">
+                    <div fxLayout="row" class="exerciseheader">
+                        Number of sets
+                    </div>
+                    <div fxLayout="row" *ngFor="let exercise of workout.Exercises">
+                        {{exercise.NumberOfSets}}
+                    </div>
+                </div>
+
+                <div fxLayout="column" fxFlex="25%">
+                    <div fxLayout="row" class="exerciseheader">
+                        Number of reps or time
+                    </div>
+                    <div fxLayout="row" *ngFor="let exercise of workout.Exercises">
+                        {{exercise.NumberOfReps}}
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
